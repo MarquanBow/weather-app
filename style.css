@@ -1,0 +1,34 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: #ded99e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather_container{
+    color: black;
+}
+
+.temp{
+    font-size: 4.5rem;
+}
+
+.location_time{
+    font-size: 2rem;
+}
+
+.condition{
+    margin: 0.5rem;
+    margin-left: 0.2rem;
+}
+
+nav{
+    
+}
