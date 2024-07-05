@@ -1,8 +1,8 @@
 // http://api.weatherapi.com/v1/current.json?key=1abd0e7fc7ac45e6ad515636240507&q=Richmond&aqi=no
 
 function getWeather() {
-    const apiKey = '4b5dcfeb1e09909278f00d2f7030fc30';
-    const city = document.getElementById('city').ariaValueMax;
+    const apiKey = 'ed45098a3dde7051f51d2d1d6966a754';
+    const city = document.getElementById('city').value;
 
     if (!city){
         alert('Please enter a city');
@@ -48,12 +48,12 @@ function displayWeather(data) {
         weatherInfoDiv.innerHTML = `<p>${data.message}</p>`;
     } else {
         const cityName = data.name;
-        const temperature = Math.round(data.main.temp - 273.15);
+        const temperature = Math.round((data.main.temp - 273.15) * 9/5 + 32);
         const description = data.weather[0].description;
         const iconCode = data.weather[0].icon;
-        const iconUrl = `https://openweathermap.org/img/wn${iconCode}@4x.png`;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
 
-        const temperatureHTML = `<p>${temperature}&deg;C</p>`;
+        const temperatureHTML = `<p>${temperature}&deg;F</p>`;
         const weatherHTML = `
             <p>${cityName}</p>
             <p>${description}</p>`;
@@ -68,21 +68,21 @@ function displayWeather(data) {
 }
 
 function displayHourlyForecast(hourlyData){
-    const hourlyForecastDiv = document.getElementById('houry-forecast');
+    const hourlyForecastDiv = document.getElementById('hourly-forecast');
     const next24Hours = hourlyData.slice(0, 8);
 
     next24Hours.forEach(item => {
         const dateTime = new Date(item.dt * 1000);
         const hour = dateTime.getHours();
-        const temperature = Math.round(item.main.temp - 273.15);
+        const temperature = Math.round((item.main.temp - 273.15) * 9/5 + 32);
         const iconCode = item.weather[0].icon;
-        const iconUrl = `https://openweathermap.org/img/wn${iconCode}.png`;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
         const hourlyItemHtml = `
             <div class="hourly-item">
                 <span>${hour}:00</span>
                 <img src="${iconUrl}" alt="Hourly Weather Icon">
-                <span>${temperature}&deg;C</span>
+                <span>${temperature}&deg;F</span>
             </div>`;
         hourlyForecastDiv.innerHTML += hourlyItemHtml;
     });
