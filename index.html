@@ -7,31 +7,19 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="container">
-        <div class="weather_container">
-            <div class="temp">
-                <p>96</p>
-            </div>
-            <div class="location_time">
-                <p>Richmond</p>
-                <p>6:38PM - 7/4/2024</p>
-            </div>
-            <div class="condition">
-                <p>implement images</p>
-                <p>condition</p>
-            </div>
-            <form>
-                <input type="text" placeholder="Search for a location" class="searchbar"/>
-                <button type="submit" class="navButton">Search</button>
-            </form>
-        </div>
-    </div>
+    <div id="weather-container">
+        <h2>Weather App</h2>
+        <input type="text" id="city" placeholder="Enter city">
+        <button onclick="getWeather()">Search</button>
 
-    <nav>
-        <form>
-            <input type="text" placeholder="Search for a location" class="searchbar"/>
-            <button type="submit" class="navButton">Search</button>
-        </form>
-    </nav>
+        <img id="weather-icon" alt="Weather Icon">
+
+        <div id="temp-div"></div>
+
+        <div id="weather-info"></div>
+
+        <div id="hourly-forecast"></div>
+    </div>
 </body>
+<script src="./script.js"></script>
 </html>
